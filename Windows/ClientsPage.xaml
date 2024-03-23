@@ -1,0 +1,46 @@
+﻿<Page x:Class="EstateAgency.Windows.ClientsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EstateAgency.Windows"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="720"
+      Title="ClientsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Margin="16 16 0 0" Text="Найти:"/>
+            <TextBox Grid.Column="1" Margin="16 16 16 0" x:Name="FindInput" TextChanged="FindInput_TextChanged"/>
+        </Grid>
+        <DataGrid Grid.Row="1" Margin="16 16 16 0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" x:Name="Clients">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Фамилия" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Width="*" Header="Имя" Binding="{Binding MiddleName}"/>
+                <DataGridTextColumn Width="*" Header="Отчество" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Width="*" Header="Телефон" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Width="*" Header="Email" Binding="{Binding Email}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <UniformGrid Grid.Row="2" Columns="3">
+            <Button Style="{StaticResource PrimaryButton}" Margin="16 16 0 16" x:Name="AddButton" Click="AddButton_Click">
+                <TextBlock Foreground="White" Text="Добавить"/>
+            </Button>
+            <Button Style="{StaticResource PrimaryButton}" Margin="16 16 0 16" x:Name="EditButton" Click="EditButton_Click">
+                <TextBlock Foreground="White" Text="Изменить"/>
+            </Button>
+            <Button Style="{StaticResource PrimaryButton}" Margin="16" x:Name="DeleteButton" Click="DeleteButton_Click">
+                <TextBlock Foreground="White" Text="Удалить"/>
+            </Button>
+        </UniformGrid>
+    </Grid>
+</Page>
